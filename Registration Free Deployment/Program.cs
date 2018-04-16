@@ -12,60 +12,39 @@
 
 using System;
 using System.Diagnostics;
+
 using BytescoutImageToVideo;
-namespace TransitionEffects
+
+
+namespace ImageToVideoSample
 {
-	class Program
-	{
+    class Program
+    {
         static void Main(string[] args)
         {
             try
             {
-                Console.WriteLine("Converting JPG slides to video with 70 advanced 3D effects variations, please wait...");
+                Console.WriteLine("Converting JPG slides to video, please wait...");
 
-                // Create BytescoutImageToVideoLib.ImageToVideo object instance
+                // Create ImageToVideo object instance
                 ImageToVideo converter = new ImageToVideo();
 
                 // Activate the component
                 converter.RegistrationName = "demo";
                 converter.RegistrationKey = "demo";
 
-                // Enable transition effects for the first first slide
-                converter.UseInEffectForFirstSlide = true;
-
-                converter.Slides.DefaultSlideDuration = 1000;
-                converter.Slides.DefaultSlideEffectDuration = 500;
-
-                bool bChangeSlide = true; // temporary variable to change slides
-
-
-                // now try all 70 advanced 3D transition effects from 70 to 140
-                for (int i = 67; i < 140; i++)
-                {
-
-                    // Add slide image, set the duration
-
-                    Slide slide = null;
-
-                    if (!bChangeSlide)
-                    {
-                        slide = converter.AddImageFromFileName("..\\..\\..\\..\\slide1.jpg");
-                    }
-                    else
-                    {
-                        slide = converter.AddImageFromFileName("..\\..\\..\\..\\slide2.jpg");
-                    }
-
-                    bChangeSlide = !bChangeSlide; // switch to use another slide next tim
-
-                    slide.InEffect = (TransitionEffectType)i; // effect index
-
-                }
-
+                // Add images and set the duration for every slide
+                Slide slide;
+                slide = converter.AddImageFromFileName("slide1.jpg");
+                slide.Duration = 3000; // 3000ms = 3s
+                slide = converter.AddImageFromFileName("slide2.jpg");
+                slide.Duration = 3000;
+                slide = converter.AddImageFromFileName("slide3.jpg");
+                slide.Duration = 3000;
 
                 // Set output video size
-                converter.OutputWidth = 320;
-                converter.OutputHeight = 240;
+                converter.OutputWidth = 640;
+                converter.OutputHeight = 480;
 
                 // Set output video file name
                 converter.OutputVideoFileName = "result.wmv";
@@ -73,23 +52,22 @@ namespace TransitionEffects
                 // Run the conversion
                 converter.RunAndWait();
 
-				// Release resources
-				System.Runtime.InteropServices.Marshal.ReleaseComObject(converter);
-				converter = null;
-
+                // Release resources
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(converter);
 
                 // Open the result video file in default media player
                 Process.Start("result.wmv");
 
-                Console.WriteLine("Done. Press any key to continue...");
+                Console.WriteLine("Done. Press any key to continue..");
                 Console.ReadKey();
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error: " + e.ToString());
-                Console.WriteLine("\nPress any key to exit.");
+                Console.WriteLine("Error: " + e);
+                Console.WriteLine();
+                Console.WriteLine("Press any key to exit.");
                 Console.ReadKey();
             }
         }
-	}
+    }
 }
