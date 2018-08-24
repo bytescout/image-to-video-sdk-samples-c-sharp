@@ -1,5 +1,4 @@
-## Index of source code examples
-
+## Index of source code examples:
 
 \2x Speed by Parallel Generation
 \60 standard 2D transition effects
