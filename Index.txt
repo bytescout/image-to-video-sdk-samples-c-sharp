@@ -11,6 +11,7 @@
 \Conversion Progress GUI
 \Full Featured Demo
 \Multiple Videos At Once
+\Parallel Processing
 \Registration Free Deployment
 \Replace Audio
 \Set MP3 Audiotrack
@@ -18,3 +19,4 @@
 \Slide Effects
 \Transition Effects
 \WEBM Transition Effects
+\Parallel Processing\images
