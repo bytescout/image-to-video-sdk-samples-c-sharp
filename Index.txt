@@ -1,8 +1,8 @@
 ## Index of source code examples:
 
 \2x Speed by Parallel Generation
-\60 standard 2D transition effects
-\70 advanced 3D transition effects
+\60 Standard 2D Transition Effects
+\70 Advanced 3D Transition Effects
 \Add Image From Buffer
 \Background Color
 \Background Picture
@@ -18,5 +18,5 @@
 \Simple Slideshow
 \Slide Effects
 \Transition Effects
-\WEBM Transition Effects
+\WEBM Output
 \Parallel Processing\images
